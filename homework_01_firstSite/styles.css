@@ -1,29 +1,43 @@
 body {
-    font: 10pt Arial, Helvetica, sans-serif; /* Шрифт на веб-странице */
+    font: 10pt Arial, Helvetica, sans-serif;
 }
 #container {
-    width: 500px; /* Ширина слоя */
-    margin: 0 auto; /* Выравнивание по центру */
+    width: 500px;
+    margin: 0 auto;
 }
 header {
-    padding: 5px; /* Отступы вокруг текста */
-    background: mediumseagreen; /* Цвет фона шапки */
-    color: white; /* Цвет текста */
+    padding: 5px;
+    background: mediumseagreen;
+    color: white;
 }
 #sidebar {
     margin-top: 10px;
-    width: 110px; /* Ширина слоя */
-    padding: 0 10px; /* Отступы вокруг текста */
-    float: left; /* Обтекание по правому краю */
-    background: lightgray;
+    width: 110px;
+    padding: 0 10px;
+    float: left;
+    background: lightgrey;
 }
 #content {
-    margin-left: 130px; /* Отступ слева */
-    padding: 10px; /* Поля вокруг текста */
-    background: #fff; /* Цвет фона правой колонки */
+    margin-left: 130px;
+    padding: 10px;
 }
+
+.firstLinks {
+    background: lightgrey;
+    margin: 10px;
+    padding: 10px;
+    float: left;
+}
+
+.td {
+    background: lightgrey;
+    margin: 5px;
+    padding: 5px;
+    float: left;
+}
+
 footer {
-    background: lightgray; /* Цвет фона подвала */
-    padding: 5px; /* Отступы вокруг текста */
+    background: lightgrey;
+    padding: 5px;
     position: fixed; left: 0; bottom: 0; width: 100%;
 }
