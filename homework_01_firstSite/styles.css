@@ -59,3 +59,13 @@ footer {
 .main {
 
 }
+.footer-left {
+   width: 50%;
+   float: left;
+   text-align: left;
+}
+.footer-right {
+    width: 50%;
+    text-align: right;
+    float: right;
+}
