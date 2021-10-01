@@ -80,6 +80,15 @@ header {
     padding: 10px;
 }
 
+.fish-popular-item__button {
+    background: darkgrey;
+}
+
+.fish-popular-item__button_dark {
+    background: black;
+    color: white;
+}
+
 footer {
     background: lightgrey;
     padding: 5px;
@@ -93,11 +102,12 @@ footer {
     width: 50%;
     float: left;
     text-align: left;
+    margin-left: 20px;
 }
 
 .footer-right {
     width: 50%;
     text-align: right;
     float: right;
-
+    margin-right: 20px;
 }
