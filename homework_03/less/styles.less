@@ -15,15 +15,15 @@ body {
 
 .header {
   padding: 5px;
-  background: mediumseagreen;
+  background-color: mediumseagreen;
   color: white;
   display: flex;
-}
-.header_dark {
-  padding: 5px;
-  background: #779283;
-  color: black;
-  display: flex;
+  &_dark {
+    padding: 5px;
+    background-color: #779283;
+    color: black;
+    display: flex;
+  }
 }
 
 .content {
@@ -31,35 +31,33 @@ body {
   width: 100%;
   height: 100%;
   color: black;
-  background: white;
-}
-.content_dark {
-  display: inline-flex;
-  width: 100%;
-  height: 100%;
-  color: white;
-  background:black;
+  background-color: white;
+  &_dark {
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-color:black;
+  }
 }
 
 .sidebar {
   margin: 10px 10px 10px 0;
   width: 240px;
   padding: 10px;
-  background: @lightBackgroundColor;
+  background-color: @lightBackgroundColor;
   flex-direction: column;
   color: black;
-}
-.sidebar_dark {
-  margin: 10px 10px 10px 0;
-  width: 240px;
-  padding: 10px;
-  background: @lightBackgroundColor_dark;
-  flex-direction: column;
-  color: white;
-}
-@media (max-width: 520px) {
-  .sidebar {
-    display: none;
+  &_dark {
+    margin: 10px 10px 10px 0;
+    width: 240px;
+    padding: 10px;
+    background-color: @lightBackgroundColor_dark;
+    flex-direction: column;
+    color: white;
+  }
+  @media (max-width: 520px) {
+      display: none;
   }
 }
 
@@ -69,14 +67,15 @@ body {
   display: flex;
   flex-direction: column;
   color: black;
+  &_dark {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+  }
 }
-.main_dark {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  color: white;
-}
+
 .a_dark {
   color: white;
 }
@@ -87,16 +86,15 @@ body {
   grid-template-columns: repeat(2, auto);
   grid-column-gap: 10px;
   margin-top: 20px;
-}
+  &__item {
+    background-color: @lightBackgroundColor;
+    padding: 10px;
+  }
+  &__item_dark {
+    background-color: @lightBackgroundColor_dark;
+    padding: 10px;
 
-.fish-class__item {
-  background: @lightBackgroundColor;
-  padding: 10px;
-}
-.fish-class__item_dark {
-  background: @lightBackgroundColor_dark;
-  padding: 10px;
-
+  }
 }
 
 .fish-popular {
@@ -104,74 +102,63 @@ body {
   width: 100%;
   grid-template-columns: repeat(3, auto);
   grid-gap: 10px;
-}
-
-.fish-popular-item {
-  display: inline-flex;
-  background:@lightBackgroundColor;
-  padding: 10px;
-}
-.fish-popular-item_dark {
-  display: inline-flex;
-  background: @lightBackgroundColor_dark;
-  padding: 10px;
-}
-.fish-popular-item__1b {
-  background: @darkBackgroundColor;
-  width: 50px;
-  height: 50px;
-}
-
-.fish-popular-item__1b_dark {
-  background: black;
-  width: 50px;
-  height: 50px;
-}
-
-.fish-popular-item__2b {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-}
-
-.fish-popular-item__button {
-  background: @darkBackgroundColor;
-}
-
-.fish-popular-item__button_dark {
-  background: black;
-  color: white;
+  &-item {
+    display: inline-flex;
+    background-color: @lightBackgroundColor;
+    padding: 10px;
+  }
+  &-item_dark {
+    display: inline-flex;
+    background-color: @lightBackgroundColor_dark;
+    padding: 10px;
+  }
+  &-item__1b {
+    background-color: @darkBackgroundColor;
+    width: 50px;
+    height: 50px;
+  }
+  &-item__1b_dark {
+    background-color: black;
+    width: 50px;
+    height: 50px;
+  }
+  &-item__2b {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  &-item__button {
+    background-color: @darkBackgroundColor;
+  }
+  &-item__button_dark {
+    background-color: black;
+    color: white;
+  }
 }
 
 .footer {
-  background: @lightBackgroundColor;
+  background-color: @lightBackgroundColor;
   padding: 5px;
   position: fixed; left: 0; bottom: 0;
   width: 100%;
   display: flex;
-  align-content: center;
+  justify-content: space-between;
   color: black;
-}
-.footer_dark {
-  background: @lightBackgroundColor_dark;
-  padding: 5px;
-  position: fixed; left: 0; bottom: 0;
-  width: 100%;
-  display: flex;
-  align-content: center;
-  color: white;
+  &_dark {
+    background-color: @lightBackgroundColor_dark;
+    padding: 5px;
+    position: fixed; left: 0; bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+  }
+  &-left {
+    margin-left: 20px;
+  }
+  &-right {
+    margin-right: 20px;
+  }
 }
 
-.footer-left {
-  width: 50%;
-  float: left;
-  text-align: left;
-  margin-left: 20px;
-}
 
-.footer-right {
-  width: 50%;
-  text-align: right;
-  float: right;
-  margin-right: 20px;
-}
