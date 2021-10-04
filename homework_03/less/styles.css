@@ -6,11 +6,38 @@ body {
   margin: 0;
   height: 100%;
 }
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .header {
   padding: 5px;
   background-color: mediumseagreen;
   color: white;
   display: flex;
+  justify-content: space-between;
+}
+.header__h1 {
+  margin-left: 50px;
+}
+.header__spinner {
+  border: 10px solid silver;
+  border-top: 10px solid navy;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 500ms linear;
+  animation-iteration-count: 10;
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+}
+.header__spinner:hover {
+  animation: spin 500ms linear infinite;
 }
 .header_dark {
   padding: 5px;
@@ -85,6 +112,11 @@ body {
   background-color: #4d2470;
   padding: 10px;
 }
+@keyframes changeColor {
+  100% {
+    background-color: mediumseagreen;
+  }
+}
 .fish-popular {
   display: grid;
   width: 100%;
@@ -95,6 +127,9 @@ body {
   display: inline-flex;
   background-color: lightgrey;
   padding: 10px;
+}
+.fish-popular-item:hover {
+  animation: changeColor 3s forwards;
 }
 .fish-popular-item_dark {
   display: inline-flex;
