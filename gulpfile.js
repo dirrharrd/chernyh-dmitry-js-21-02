@@ -6,9 +6,9 @@ const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 
 gulp.task('less', function (done) {
-    gulp.src('./homework_03/less/**/*.less')
+    gulp.src('./homework_04/less/**/*.less')
         .pipe(less())
-        .pipe(gulp.dest('./homework_03/less/'))
+        .pipe(gulp.dest('./homework_04/less/'))
     done();
 })
 
@@ -36,11 +36,11 @@ gulp.task('serve', function () {
 })
 
 gulp.task('less:watch', function () {
-    gulp.watch('./homework_03/less/**/*.less', gulp.series('less'))
+    gulp.watch('./homework_04/less/**/*.less', gulp.series('less'))
 })
 
 gulp.task('build', function (done) {
-    gulp.src('./homework_03/less/styles.css')
+    gulp.src('./homework_04/less/styles.css')
         .pipe(postcss([cssnano]))
         .pipe(gulp.dest('./build/'))
     done();
