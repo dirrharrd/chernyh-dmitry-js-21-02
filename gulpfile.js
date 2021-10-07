@@ -19,28 +19,28 @@ const cssnano = require('cssnano');
 //gulp.task('default', gulp.parallel('sass:watch', 'serve'))
 
 gulp.task('less', function (done) {
-    gulp.src('./homework_03/less/**/*.less')
+    gulp.src('./homework_04/less/**/*.less')
         .pipe(less())
-        .pipe(gulp.dest('./homework_03/less/'))
+        .pipe(gulp.dest('./homework_04/less/'))
     done();
 })
 
 gulp.task('serve', function () {
     browserSync.init({
         server: {
-            baseDir: './homework_03/'
-       },
+            baseDir: './homework_04/'
+        },
         port: 3000
     })
     gulp.watch('./**/*').on('change', browserSync.reload)
 })
 
 gulp.task('less:watch', function () {
-    gulp.watch('./homework_03/less/**/*.less', gulp.series('less'))
+    gulp.watch('./homework_04/less/**/*.less', gulp.series('less'))
 })
 
 gulp.task('build', function (done) {
-    gulp.src('./homework_03/less/styles.css')
+    gulp.src('./homework_04/less/styles.css')
         .pipe(postcss([cssnano]))
         .pipe(gulp.dest('./build/'))
     done();
