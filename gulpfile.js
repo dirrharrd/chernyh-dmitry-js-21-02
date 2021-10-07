@@ -12,7 +12,7 @@ gulp.task('less', function (done) {
 gulp.task('serve', function () {
     browserSync.init({
         server: {
-            baseDir: './homework_03'
+            baseDir: './homework_03/'
         },
         port: 3000
     })
