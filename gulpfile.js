@@ -28,8 +28,8 @@ gulp.task('less', function (done) {
 gulp.task('serve', function () {
     browserSync.init({
         server: {
-            baseDir: './homework_04/'
-        },
+            baseDir: './homework_03/'
+       },
         port: 3000
     })
     gulp.watch('./**/*').on('change', browserSync.reload)
