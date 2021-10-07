@@ -5,13 +5,6 @@ const browserSync = require('browser-sync').create();
 const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 
-gulp.task('less', function (done) {
-    gulp.src('./homework_04/less/**/*.less')
-        .pipe(less())
-        .pipe(gulp.dest('./homework_04/less/'))
-    done();
-})
-
 //gulp.task('sass', function (done) {
 //    gulp.src('./homework_03/scss/**/*.scss')
 //        .pipe(sass())
@@ -24,6 +17,13 @@ gulp.task('less', function (done) {
 //})
 
 //gulp.task('default', gulp.parallel('sass:watch', 'serve'))
+
+gulp.task('less', function (done) {
+    gulp.src('./homework_04/less/**/*.less')
+        .pipe(less())
+        .pipe(gulp.dest('./homework_04/less/'))
+    done();
+})
 
 gulp.task('serve', function () {
     browserSync.init({
