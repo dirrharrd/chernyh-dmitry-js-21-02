@@ -210,5 +210,3 @@ test.setProp("prop2", "value2");
 console.log(`Ответ:`);
 console.log(Object.getOwnPropertyDescriptor(test, "prop1"));
 console.log(Object.getOwnPropertyDescriptor(test, "prop2"));
-
-const s = 'fuckyou';
