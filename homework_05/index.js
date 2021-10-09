@@ -1,4 +1,4 @@
-//1. На вход поступает массив, вывести массив, удалив неуникальные значения.
+//1)
 console.log(`1. На вход поступает массив, вывести массив, удалив неуникальные значения.`);
 const array1 = [5,-2,3,4,5,6,-2,5,5,0];
 console.log(`Входные данные:`, array1);
@@ -6,7 +6,7 @@ console.log(`Ответ:`, array1.filter((value, index) => {
     return array1.indexOf(value) === index;
 }));
 
-//2. На вход поступает массив, реверсировать значения (подобно методу reverse) метод reverse не использовать.
+//2)
 console.log(`2. На вход поступает массив, реверсировать значения (подобно методу reverse) метод reverse не использовать.`);
 const array2 = [5,-2,3,4,5,6,-2,5,5,0];
 console.log(`Входные данные:`, array2);
@@ -14,15 +14,14 @@ console.log(`Ответ:`, array2.map((value, index) => {
     return array2[array2.length - index - 1];
 }));
 
-//3. На вход поступает массив, содержащий массивы, в которых хранится два элемента. Преобразовать массив в объект, где ключами являются нулевой индекс вложенныхых массивов,
-//    а значениями являются элементы с индексом один.
+//3)
 console.log(`3. На вход поступает массив, содержащий массивы, в которых хранится два элемента. Преобразовать массив в объект, где ключами являются нулевой индекс вложенныхых массивов, а значениями являются элементы с индексом один.`);
 const array3 = [ [5, 0], ["6", 1], ["test", 2] ];
 console.log(`Входные данные:`, array3);
 console.log(`Ответ:`, Object.fromEntries(array3));
 
 
-//4. На вход поступает объект, вывести сумму числовых свойств объекта.
+//4)
 console.log(`4. На вход поступает объект, вывести сумму числовых свойств объекта.`);
 const obj4 = { key1: 1, key2: "key2", key3: 3, key4: true, key5: function () {}, key6: 99 };
 console.log(`Входные данные:`, obj4);
@@ -35,14 +34,13 @@ for (let key in obj4) {
 console.log(`Ответ:`, count4);
 
 
-//5. На вход поступает массив с числами, вывести среднее арифметическое элементов массива.
+//5)
 console.log(`5. На вход поступает массив с числами, вывести среднее арифметическое элементов массива.`);
 const array5 = [5,-2,3,4,5,6,-2,5,5,0];
 console.log(`Входные данные:`, array5);
 console.log(`Ответ:`, (array5.reduce((acc, value) => acc + value, 0)) / array5.length);
 
-//6. Создать функцию-конструктор для объекта "калькулятор", объект должен иметь поле, хранящее текущее значение и методы сложения, вычитания,
-//умножения и деления, принимающие число и манипулирующий свойством значения в соответствии с назначением метода, а так же функцию, сбрасывающую значение в ноль.
+//6)
 console.log(`6. Создать функцию-конструктор для объекта "калькулятор", объект должен иметь поле, хранящее текущее значение и методы сложения, вычитания,
 умножения и деления, принимающие число и манипулирующий свойством значения в соответствии с назначением метода, а так же функцию, сбрасывающую значение в ноль.`);
 function Calc(number) {
@@ -71,73 +69,146 @@ console.log(`Разделили на ${div} = ${calc.read()}`)
 calc.clear();
 console.log(`Сброс: ${calc.read()}`)
 
-/*
-//1)
-const q1 = prompt(`1. Написать скрипт, предлагающий пользователю ввести две строки через запятую. 
-Вывести сообщение true, если вторая строка содержится в первый, в противном случае false, регистр при проверке не учитывать
-Пример ввода: in God we trust...,Trust`);
-const arr1 = q1.split(",");
-alert(arr1[0].toLowerCase().includes(arr1[1].toLowerCase()));
-
-//2)
-const q2 = prompt(`2. Пользователь вводит строку, затем число через запятую (кол-во символов). 
-Функция усекает строку до кол-ва символов и добавляет многоточие
-Пример ввода: in God we trust...,6`);
-const arr2 = q2.split(",");
-alert(arr2[0].slice(0,arr2[1]).concat("..."));
-
-//3)
-const q3 = prompt(`3. Написать функцию, преобразующее строку с датой и временем формата '12/02/2021 12-00' 
-в строку формата 12.02.2021 12:00, используя регулярные выражения
-Пример ввода: 12/02/2021 12-00`);
-alert(q3.replace(/[//]/g, ".").replace(/-/g, ":"));
-
-//4)
-const q4 = prompt(`4. Написать функцию, валидирующую ФИО из кирилличиских символов 
-(считать, что отчество может оканчиваться только на "вна" или "вич" или может отсутствовать)
-Пример ввода: Гейтс Билл Вильямович`);
-const regexp4 = /^[а-яА-я]+ [а-яА-я]+( [а-яА-я]*(вна|вич))?$/;
-alert(regexp4.test(q4));
-
-//5)
-const q5 = prompt(`5. На вход дана строка в PamalCase, преобразовать строку в snake_case
-Пример ввода: CamelCaseS`);
-alert(q5.replace(/[A-ZА-Я]/g, (str) => "_".concat(str)).toLowerCase().slice(1));
-
-//6)
-const q6 = prompt(`6. На вход даётся многострочная строка, найти и вернуть через alert все html комментарии
-Пример ввода:
-<!-- комментарий 1 -->
-html text 1
-<!-- Много
-строчный
-комментарий -->
-...продолжаем html текст
-...снова html
-<!-- комментарий 2 -->
-(вставить текст из файла)
-`);
-const regexp6 = /(?<=(\<!--)).*?(?=(--\>))/gms;
-alert(q6.match(regexp6));
-
 //7)
-const q7 = prompt(`7. На вход дана строка, вернуть через alert все числа (десятичные разделяются сиволом ".")
-Пример ввода: call+8(800)900.9-10.-0.01`);
-const regexp7 = /[\d]*[\.]?[\d]+/g;
-alert(q7.match(regexp7));
+console.log(`7. Функция принимает смешанный массив (содержащий значения чисел, строк и объектов), вернуть объект с полями numbers, strings и objects, содержащими массив со значениями,
+соответствующими названию поля.`);
+const array7 = [1, "1", { key1: 1 }, 2, "2", { key2: 2 }, 3, "3", { key3: 3 }];
+console.log(`Входные данные:`, array7);
+const obj7 ={}, numArr = [], strArr = [], objArr = [];
+for (let item of array7) {
+    if (typeof item == 'number') {
+        numArr.push(item);
+    }
+    if (typeof item == 'string') {
+        strArr.push(item);
+    }
+    if (typeof item == 'object') {
+        objArr.push(item);
+    }
+}
+obj7.numbers = numArr;
+obj7.strings = strArr;
+obj7.objects = objArr;
+console.log(`Ответ:`, obj7);
 
 //8)
-const regexp8=/^[a-zA-Z0-9]{4}-?[a-zA-Z0-9]{4}-?[a-zA-Z0-9]{4}-?[a-zA-Z0-9]{4}$/g;
-do {
-    let q8 = prompt(`8. Валидация введённого значения. Вводится идентификатор документа. Идентификатор должен состоять из четырёх частей по четыре символа,разделённых или не разделённых знаком "-". 
-    Допускаются только символы латинского алфавита и числа. Вывести через alert "ведётся поиск", при соответствии введённого значения, или "неверный идентификатор", при несоответствии. 
-    При несоответствии снова вывести форму для ввода строки.
-    Пример ввода: 1234-FFF89-as90-90hg`);
-    if (regexp8.test(q8)) {
-        alert("ведётся поиск");
-        break;
-    } else {
-        alert("неверный идентификатор");
+console.log(`8. Функция принимает массив чисел и два числовых значения, вернуть новый массив, содержащий элементы первого массива, 
+значение которых попадает под диапазон переданных в функцию чисел (второе переданное число может быть больше первого)`);
+const array8 = [5,-2,3,4,5,6,-2,5,5,0];
+const from = 4, to = 10;
+console.log(`Входные данные:`, array8);
+console.log(`Диапазон: от ${from} до ${to}`);
+console.log(`Ответ:`, array8.filter((value, index) => {
+    return ( value >= from && value <= to );
+}));
+
+//9)
+console.log(`9. Функция принимает две строки. Вывести true, если строки являются анаграммами, в противном случае false`);
+const strA = "Friend", strB = "finder";
+let flag = true;
+console.log(`Входные данные: 1) ${strA} и 2) ${strB}`);
+
+function getObj(str) {
+    const charObj = {};
+    for(let char of str.replace(/[^\w]/g).toLowerCase()) {
+        charObj[char] = charObj[char] + 1 || 1;
     }
-} while (true);
-*/
+    return charObj;
+}
+
+const charObjA = getObj(strA);
+const charObjB = getObj(strB);
+
+if (Object.keys(charObjA).length !== Object.keys(charObjB).length) {
+    console.log("Ответ: false");
+}
+else {
+    for (let char in charObjA) {
+        if (charObjA[char] !== charObjB[char]) {
+            flag = false;
+            break;
+        }
+    }
+    if (flag) {
+        console.log("Ответ: true");
+    } else {
+        console.log("Ответ: false");
+    }
+}
+
+//10)
+console.log(`10. Создать объект, выводящий в консоль все ключи и значения объекта в формате "ключ: значение" через запятую (считать, 
+что значением ключа объекта не может быть объектом или массивом, содержащими объекты) сама функция в консоль выводиться не должна.`);
+const obj10 = {key1: 1, key2: "string", key3: true, key4: [1,2,"string"], key5: 5,
+    showAllProperties: function show() {
+    let str = "";
+    for(var key in obj10) {
+        if (typeof obj10[key] !== 'function') {
+            str = str + `${key}: ${obj10[key]}, `;
+        }
+    }
+    console.log(`Ответ: ${str.slice(0,-2)}`);
+}
+};
+console.log(`Входные данные:`, obj10);
+obj10.showAllProperties();
+
+//11)
+console.log(`11. Создать функцию-конструктор для объекта, содержащего методы serProp (установить значение свойства), метод принимает ключь (строка), 
+значение (произвольное) и объект со свойствами writable, configurable, enumerable (разрешение перезаписи свойства, разрешение перечисления свойства и разрешение удаления свойства). 
+Если какое-то из свойств в объекте отсутствует, действие должно быть разрешено`);
+function Obj11() {
+    this.prop1;
+    this.prop2;
+    this.setProp = (key, value, prop) => {
+        if (prop !== undefined) {
+            if (prop.configurable) {
+                Object.defineProperty(this, key, {
+                    value: value,
+                    configurable: true
+                });
+            } else {
+                Object.defineProperty(this, key, {
+                    value: value,
+                    configurable: false
+                });
+            }
+            if (prop.writable) {
+                Object.defineProperty(this, key, {
+                    value: value,
+                    writable: true
+                });
+            } else {
+                Object.defineProperty(this, key, {
+                    value: value,
+                    writable: false
+                });
+            }
+            if (prop.enumerable) {
+                Object.defineProperty(this, key, {
+                    value: value,
+                    enumerable: true
+                });
+            } else {
+                Object.defineProperty(this, key, {
+                    value: value,
+                    enumerable: false
+                });
+            }
+        }
+        else {
+            Object.defineProperty(this, key, {
+                value: value
+            });
+        }
+    }
+}
+
+const test = new Obj11();
+test.setProp("prop1", 1, {writable: true, configurable: true, enumerable: true});
+test.setProp("prop2", "value2");
+console.log(`Ответ:`);
+console.log(Object.getOwnPropertyDescriptor(test, "prop1"));
+console.log(Object.getOwnPropertyDescriptor(test, "prop2"));
+
+const s = 'fuckyou';
