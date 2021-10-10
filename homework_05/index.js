@@ -157,23 +157,16 @@ obj10.showAllProperties();
 console.log(`11. Создать функцию-конструктор для объекта, содержащего методы serProp (установить значение свойства), метод принимает ключь (строка), 
 значение (произвольное) и объект со свойствами writable, configurable, enumerable (разрешение перезаписи свойства, разрешение перечисления свойства и разрешение удаления свойства). 
 Если какое-то из свойств в объекте отсутствует, действие должно быть разрешено`);
+//Вариант 1 - длинный - НЕ РАБОЧИЙ!!!
+//свойства надо устанавливать одновременно, а не последовательно
+//делать надо по варианту 2
+/*
 function Obj11() {
     this.prop1;
     this.prop2;
     this.setProp = (key, value, prop) => {
         if (prop !== undefined) {
-            if (prop.configurable) {
-                Object.defineProperty(this, key, {
-                    value: value,
-                    configurable: true
-                });
-            } else {
-                Object.defineProperty(this, key, {
-                    value: value,
-                    configurable: false
-                });
-            }
-            if (prop.writable) {
+            if (prop.writable === undefined || true) {
                 Object.defineProperty(this, key, {
                     value: value,
                     writable: true
@@ -184,7 +177,18 @@ function Obj11() {
                     writable: false
                 });
             }
-            if (prop.enumerable) {
+            if (prop.configurable === undefined || true) {
+                Object.defineProperty(this, key, {
+                    value: value,
+                    configurable: true
+                });
+            } else {
+                Object.defineProperty(this, key, {
+                    value: value,
+                    configurable: false
+                });
+            }
+            if (prop.enumerable === undefined || true) {
                 Object.defineProperty(this, key, {
                     value: value,
                     enumerable: true
@@ -198,15 +202,36 @@ function Obj11() {
         }
         else {
             Object.defineProperty(this, key, {
-                value: value
+                value: value,
+                configurable: true,
+                writable: true,
+                enumerable: true
             });
         }
     }
 }
 
 const test = new Obj11();
-test.setProp("prop1", 1, {writable: true, configurable: true, enumerable: true});
+test.setProp("prop1", 1, {writable: true, configurable: false, enumerable: true});
 test.setProp("prop2", "value2");
-console.log(`Ответ:`);
+console.log(`Вариант 1 (длинный) Ответ:`);
 console.log(Object.getOwnPropertyDescriptor(test, "prop1"));
 console.log(Object.getOwnPropertyDescriptor(test, "prop2"));
+*/
+//Вариант 2 - короткий
+function Obj11v2 () {
+    this.setProp = (key, value, {writable=true, configurable=true, enumerable=true} = {}) => {
+        Object.defineProperty(this, key, {
+            value,
+            writable,
+            configurable,
+            enumerable
+        });
+    }
+}
+const test2 = new Obj11v2();
+console.log(`Вариант 2 (короткий) Ответ:`);
+test2.setProp("prop1", 2, {configurable: false, enumerable: true});
+console.log(Object.getOwnPropertyDescriptor(test2, "prop1"));
+test2.setProp("prop2", "test v2");
+console.log(Object.getOwnPropertyDescriptor(test2, "prop2"));
