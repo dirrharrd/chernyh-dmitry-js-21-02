@@ -139,13 +139,14 @@ else {
 //10)
 console.log(`10. Создать объект, выводящий в консоль все ключи и значения объекта в формате "ключ: значение" через запятую (считать, 
 что значением ключа объекта не может быть объектом или массивом, содержащими объекты) сама функция в консоль выводиться не должна.`);
-const obj10 = {key1: 1, key2: "string", key3: true, key4: [1,2,"string"], key5: 5,
+const obj10 = {key1: 1, key2: "string", key3: true, key4: [1,2, {name: 1}], key5: 5, key6: {name: "string"},
     showAllProperties: function show() {
     let str = "";
     for(var key in obj10) {
-        if (typeof obj10[key] !== 'function') {
+        if (typeof obj10[key] !== 'function' && typeof obj10[key] !== 'object') {
             str = str + `${key}: ${obj10[key]}, `;
         }
+
     }
     console.log(`Ответ: ${str.slice(0,-2)}`);
 }
